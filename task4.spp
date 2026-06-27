@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+double vectorLength(double arr[], int n) {
+    double sum = 0;
+
+    for (int i = 0; i < n; i++) {
+        sum += arr[i] * arr[i];
+    }
+
+    return sqrt(sum);
+}
+
+void test() {
+    double a[] = {3, 4};
+    cout << "Тест: " << vectorLength(a, 2) << endl;
+}
+
+int main() {
+    int n;
+
+    cout << "Введите размер вектора: ";
+    cin >> n;
+
+    double* arr = new double[n];
+
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    cout << "Длина = " << vectorLength(arr, n) << endl;
+
+    test();
+
+    delete[] arr;
+
+    return 0;
+}
