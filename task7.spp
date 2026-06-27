@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+
+int reverseNumber(int n) {
+    int rev = 0;
+
+    while (n > 0) {
+        rev = rev * 10 + n % 10;
+        n /= 10;
+    }
+
+    return rev;
+}
+
+void test() {
+    cout << "123 -> " << reverseNumber(123) << endl;
+}
+
+int main() {
+    int N;
+
+    cout << "Введите N: ";
+    cin >> N;
+
+    for (int i = 1; i <= N; i++) {
+        cout << i << " -> " << reverseNumber(i) << endl;
+    }
+
+    test();
+
+    return 0;
+}
