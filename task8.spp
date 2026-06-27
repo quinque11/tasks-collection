@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+double f(double x) {
+    return x * x - 4 * x + 5;
+}
+
+double maxFunction(double a, double b) {
+    double max = f(a);
+
+    for (double x = a; x <= b; x += 0.01) {
+        if (f(x) > max)
+            max = f(x);
+    }
+
+    return max;
+}
+
+void test() {
+    cout << maxFunction(0, 5) << endl;
+}
+
+int main() {
+    double a, b;
+
+    cout << "Введите a и b: ";
+    cin >> a >> b;
+
+    cout << "Максимум = " << maxFunction(a, b) << endl;
+
+    test();
+
+    return 0;
+}
