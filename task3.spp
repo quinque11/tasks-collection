@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    double epsilon = 1.0;
+
+    while (1.0 + epsilon / 2.0 > 1.0) {
+        epsilon /= 2.0;
+    }
+
+    double zero = 1.0;
+
+    while (zero / 2.0 > 0.0) {
+        zero /= 2.0;
+    }
+
+    cout << "Машинный эпсилон: " << epsilon << endl;
+    cout << "Машинный ноль: " << zero << endl;
+
+    return 0;
+}
