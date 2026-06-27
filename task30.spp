@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct Employee {
+
+    string fio;
+    string birth;
+
+    string professions[5];
+    int category[5];
+
+    string university;
+    int graduationYear;
+
+    string languages[5];
+    string level[5];
+};
+
+int main() {
+
+    Employee e;
+
+    cout << "ФИО: ";
+    getline(cin, e.fio);
+
+    cout << "Дата рождения: ";
+    getline(cin, e.birth);
+
+    cout << "Название ВУЗа: ";
+    getline(cin, e.university);
+
+    cout << "Год окончания: ";
+    cin >> e.graduationYear;
+
+    cin.ignore();
+
+    for (int i = 0; i < 5; i++) {
+        cout << "Язык " << i + 1 << ": ";
+        getline(cin, e.languages[i]);
+
+        cout << "Уровень: ";
+        getline(cin, e.level[i]);
+    }
+
+    cout << "\nДанные сохранены." << endl;
+
+    return 0;
+}

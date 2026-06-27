@@ -1,0 +1,54 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct Person {
+    string fio;
+    string birth;
+    string school;
+    string university;
+    string faculty;
+    string group;
+    int klass;
+};
+
+int main() {
+
+    Person p;
+
+    cout << "ФИО: ";
+    getline(cin, p.fio);
+
+    cout << "Дата рождения: ";
+    getline(cin, p.birth);
+
+    cout << "Школа: ";
+    getline(cin, p.school);
+
+    cout << "Класс: ";
+    cin >> p.klass;
+
+    cin.ignore();
+
+    cout << "ВУЗ: ";
+    getline(cin, p.university);
+
+    cout << "Факультет: ";
+    getline(cin, p.faculty);
+
+    cout << "Группа: ";
+    getline(cin, p.group);
+
+    cout << "\nИнформация:\n";
+
+    cout << p.fio << endl;
+    cout << p.birth << endl;
+    cout << p.school << endl;
+    cout << p.klass << endl;
+    cout << p.university << endl;
+    cout << p.faculty << endl;
+    cout << p.group << endl;
+
+    return 0;
+}

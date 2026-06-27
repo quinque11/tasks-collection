@@ -1,0 +1,48 @@
+#include <iostream>
+
+using namespace std;
+
+struct Date {
+    int day;
+    int month;
+    int year;
+};
+
+bool lessDate(Date a, Date b) {
+    if (a.year != b.year)
+        return a.year < b.year;
+
+    if (a.month != b.month)
+        return a.month < b.month;
+
+    return a.day < b.day;
+}
+
+void test() {
+    Date a = {1,1,2024};
+    Date b = {2,1,2024};
+
+    cout << lessDate(a,b) << endl;
+}
+
+int main() {
+
+    Date a,b;
+
+    cout<<"Введите первую дату (день месяц год): ";
+    cin>>a.day>>a.month>>a.year;
+
+    cout<<"Введите вторую дату: ";
+    cin>>b.day>>b.month>>b.year;
+
+    if(lessDate(a,b))
+        cout<<"Первая дата раньше"<<endl;
+    else if(lessDate(b,a))
+        cout<<"Вторая дата раньше"<<endl;
+    else
+        cout<<"Даты одинаковые"<<endl;
+
+    test();
+
+    return 0;
+}

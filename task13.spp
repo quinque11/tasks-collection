@@ -1,0 +1,58 @@
+#include <iostream>
+
+using namespace std;
+
+bool checkMatrix(int a[3][3]) {
+    for (int i = 0; i < 3; i++) {
+        bool found = false;
+        for (int j = 0; j < 3; j++) {
+            if (a[i][j] == 0)
+                found = true;
+        }
+        if (!found)
+            return false;
+    }
+
+    for (int j = 0; j < 3; j++) {
+        bool found = false;
+        for (int i = 0; i < 3; i++) {
+            if (a[i][j] == 0)
+                found = true;
+        }
+        if (!found)
+            return false;
+    }
+
+    return true;
+}
+
+void test() {
+    int a[3][3] = {
+        {0,1,2},
+        {3,0,4},
+        {5,6,0}
+    };
+
+    cout << checkMatrix(a) << endl;
+}
+
+int main() {
+    int a[3][3];
+
+    cout << "Введите матрицу 3x3:\n";
+
+    for(int i=0;i<3;i++)
+        for(int j=0;j<3;j++)
+            cin>>a[i][j];
+
+    if(checkMatrix(a))
+        cout<<"Условие выполняется";
+    else
+        cout<<"Условие не выполняется";
+
+    cout<<endl;
+
+    test();
+
+    return 0;
+}

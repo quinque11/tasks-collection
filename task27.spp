@@ -1,0 +1,42 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+bool compareFiles(string file1, string file2) {
+
+    ifstream a(file1, ios::binary);
+    ifstream b(file2, ios::binary);
+
+    char c1, c2;
+
+    while (a.get(c1) && b.get(c2)) {
+        if (c1 != c2)
+            return false;
+    }
+
+    return a.eof() && b.eof();
+}
+
+void test() {
+    cout << "Тест выполнен." << endl;
+}
+
+int main(int argc, char* argv[]) {
+
+    if (argc != 3) {
+        cout << "Использование: program file1 file2";
+        return 0;
+    }
+
+    if (compareFiles(argv[1], argv[2]))
+        cout << "Файлы одинаковые";
+    else
+        cout << "Файлы разные";
+
+    cout << endl;
+
+    test();
+
+    return 0;
+}

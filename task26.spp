@@ -1,0 +1,24 @@
+#include <iostream>
+#include <chrono>
+
+using namespace std;
+using namespace chrono;
+
+int main() {
+
+    cout << "Нажмите Enter..." << endl;
+    cin.get();
+
+    auto start = high_resolution_clock::now();
+
+    cout << "Нажмите Enter ещё раз..." << endl;
+    cin.get();
+
+    auto finish = high_resolution_clock::now();
+
+    auto ms = duration_cast<milliseconds>(finish - start);
+
+    cout << "Прошло " << ms.count() << " миллисекунд." << endl;
+
+    return 0;
+}

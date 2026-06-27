@@ -1,0 +1,63 @@
+#include <SFML/Graphics.hpp>
+#include <cstdlib>
+#include <ctime>
+
+using namespace sf;
+
+int main() {
+    srand(time(0));
+
+    RenderWindow window(VideoMode(800, 600), "Brownian Motion");
+
+    Image image;
+    image.create(800, 600, Color::Black);
+
+    Texture texture;
+    Sprite sprite;
+
+    int x = 400;
+    int y = 300;
+
+    while (window.isOpen()) {
+
+        Event event;
+
+        while (window.pollEvent(event)) {
+            if (event.type == Event::Closed)
+                window.close();
+        }
+
+        image.setPixel(x, y, Color::White);
+
+        int dir = rand() % 4;
+
+        switch (dir) {
+        case 0:
+            x += 2;
+            break;
+        case 1:
+            x -= 2;
+            break;
+        case 2:
+            y += 2;
+            break;
+        case 3:
+            y -= 2;
+            break;
+        }
+
+        if (x < 0) x = 0;
+        if (x > 799) x = 799;
+        if (y < 0) y = 0;
+        if (y > 599) y = 599;
+
+        texture.loadFromImage(image);
+        sprite.setTexture(texture);
+
+        window.clear();
+        window.draw(sprite);
+        window.display();
+    }
+
+    return 0;
+}

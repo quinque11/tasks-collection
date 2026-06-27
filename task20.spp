@@ -1,0 +1,40 @@
+#include <iostream>
+
+using namespace std;
+
+double f(double x) {
+    return x * x - 4;
+}
+
+double dichotomy(double a, double b, double eps = 0.0001) {
+    while (b - a > eps) {
+        double mid = (a + b) / 2;
+
+        if (f(mid) == 0)
+            return mid;
+
+        if (f(a) * f(mid) < 0)
+            b = mid;
+        else
+            a = mid;
+    }
+
+    return (a + b) / 2;
+}
+
+void test() {
+    cout << "Корень: " << dichotomy(0, 3) << endl;
+}
+
+int main() {
+    double a, b;
+
+    cout << "Введите a и b: ";
+    cin >> a >> b;
+
+    cout << "Корень функции = " << dichotomy(a, b) << endl;
+
+    test();
+
+    return 0;
+}

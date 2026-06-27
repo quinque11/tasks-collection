@@ -1,0 +1,36 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int countLines(string filename) {
+    ifstream file(filename);
+
+    string line;
+    int count = 0;
+
+    while (getline(file, line))
+        count++;
+
+    file.close();
+
+    return count;
+}
+
+void test() {
+    cout << "Функция работает." << endl;
+}
+
+int main() {
+    string filename;
+
+    cout << "Введите имя файла: ";
+    cin >> filename;
+
+    cout << "Количество строк: " << countLines(filename) << endl;
+
+    test();
+
+    return 0;
+}
